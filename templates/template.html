@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+</head>
+<style>
+h1 {text-align: center;} 
+form {text-align: center;}
+h2 {text-align: center;}
+pre {text-align: center;}
+body, html {
+        background-color: #9fa7a7;
+        font-family: 'Times New Roman', Times, serif, sans-serif;
+        margin: 0;
+        padding: 20px;
+        position: relative; /* Positioning context */
+    }
+    .ascii-result-display {
+        font-family: monospace;
+        font-size: 16px;
+        border-radius: 8px;
+        white-space: pre;
+        padding: 10px;
+        background-color: #ebcde1;
+        text-align: center;
+        resize: none; /* Prevent resizing of textarea*/
+        font-size: 14px; /*Optional: Define font size*/
+        line-height: 1.5; /* Optional: Define line height */
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 5px solid #ccc; /* Optional: Border for textarea */
+    }
+    .result{
+        text-align: center;
+    }
+    .frame-container {
+        width: 100%; /* Adjust width as needed */
+        height: 90%; /* Adjust height as needed */
+        border: 5px solid #ffffff; /* Optional: Border for the frame */
+        border-radius: 10px; /* Rounded corners */
+        overflow: hidden; /* Hide overflow content */
+        text-align: center;
+        background-color: rgba(225, 233, 224, 0.774);
+    }
+
+</style>
+<div class="frame-container"><body>
+    <h1>ASCII-ART-WEB GENERATOR</h1><br>                        
+</div> 
+    <form action="/ascii-art" method="POST"><br>
+        <label for="text">Text:</label><br>
+        <textarea id="text" name="text" rows="10" cols="100" placeholder="Type Something Here"></textarea>
+        <br><br>
+        <label for="banner">Select Banner File:</label>
+        <input type="radio" id="standard" name="banner" value="standard" required>
+        <label for="standard">Standard</label>
+        <input type="radio" id="shadow" name="banner" value="shadow" required>
+        <label for="shadow">Shadow</label>
+        <input type="radio" id="thinkertoy" name="banner" value="thinkertoy" required>
+        <label for="thinkertoy">Thinkertoy</label>
+        <br><br>
+        <button type="submit">Generate Ascii-art</button><br><br><br>
+    </form>
+    <div class="result"><label for="result">Result:</label></div>
+    <div class="ascii-result-display">
+        {{if .AsciiArt}}
+        <pre>{{.AsciiArt}}</pre>
+        {{end}}
+    </div>
+</body>
+</html>
+</div>
